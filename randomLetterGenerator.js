@@ -12,14 +12,29 @@ const yesOrNo = () => {
 }
 
 const generateLetter = () => {
-  const randInt = getRndInt(65, 90)
-  const genLet = String.fromCharCode(randInt)
-  letter.textContent = genLet
+  const generate = () => {
+    const randInt = getRndInt(65, 90)
+    const genLet = String.fromCharCode(randInt)
+    letter.textContent = genLet
 
-  const yayOrNay = yesOrNo()
-  if (yayOrNay === 1) {
-    yeahOrNah.textContent = 'yes'
-  } else {
-    yeahOrNah.textContent = 'no'
+    const yayOrNay = yesOrNo()
+    if (yayOrNay === 1) {
+      yeahOrNah.textContent = 'yes'
+    } else {
+      yeahOrNah.textContent = 'no'
+    }
   }
+
+  const timeout = (ms) => {
+    return new Promise((resolve) => setTimeout(resolve, ms))
+  }
+
+  async function run() {
+    for (i = 0; i < 20; i++) {
+      generate()
+      await timeout(i * 20)
+    }
+  }
+
+  run()
 }
