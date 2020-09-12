@@ -24,6 +24,10 @@ h2 {
   font-size: 10rem;
   color: pink;
 }
+p {
+  font-size: 2rem;
+  color: orange;
+}
 
 button {
   font-family: 'Lucida Sans';
