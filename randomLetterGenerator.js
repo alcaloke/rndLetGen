@@ -3,6 +3,7 @@ console.dir(document)
 const title = document.getElementById('title')
 const letter = document.getElementById('generated')
 const yeahOrNah = document.getElementById('boolean')
+const randNum = document.getElementById('randNum')
 
 const getRndInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
@@ -45,9 +46,14 @@ const generateLetter = () => {
 
     // yes or no random colour
     yeahOrNah.style.color = colours[Math.floor(Math.random() * x)]
+
+    // random number
+    randNum.textContent = getRndInt(21,499)
+    randNum.style.color = colours[Math.floor(Math.random() * x)]
   }
 
   const timeout = (ms) => {
+    // simply resolves when set time is over
     return new Promise((resolve) => setTimeout(resolve, ms))
   }
 
@@ -57,6 +63,7 @@ const generateLetter = () => {
     }
     for (i = 0; i < 20; i++) {
       generate()
+      // waits for setTimeout, resolves & goes back to  the loop
       await timeout(i * 20)
     }
   }
