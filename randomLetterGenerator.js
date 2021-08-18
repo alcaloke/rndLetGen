@@ -48,7 +48,7 @@ const generateLetter = () => {
     yeahOrNah.style.color = colours[Math.floor(Math.random() * x)]
 
     // random number
-    randNum.textContent = getRndInt(21,499)
+    randNum.textContent = `${getRndInt(21, 499)} - ${getRndInt(1, 6)}`
     randNum.style.color = colours[Math.floor(Math.random() * x)]
   }
 
